@@ -1,0 +1,212 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        message();
+        byte a = scanner.nextByte();
+        switch (a) {
+            case 1:
+                String s3 = "";
+                byte n3 = scanner.nextByte();
+                byte digits2 = 8;
+                for (int i = 0; i < digits2; i++) {
+                    if ((n3 & 1) != 0) {
+                        s3 = "1" + s3;
+                    } else {
+                        s3 = "0" + s3;
+                    }
+                    n3 = (byte) (n3 >> 1);
+                }
+                System.out.println(s3);
+                break;
+            case 2:
+                String s2 = "";
+                short n2 = scanner.nextShort();
+                byte digits1 = 16;
+                for (int i = 0; i < digits1; i++) {
+                    if ((n2 & 1) != 0) {
+                        s2 = "1" + s2;
+                    } else {
+                        s2 = "0" + s2;
+                    }
+                    n2 = (short) (n2 >> 1);
+                }
+                System.out.println(s2);
+                break;
+            case 3:
+                String s = "";
+                int n = scanner.nextInt();
+                byte digits = 32;
+                for (int i = 0; i < digits; i++) {
+                    if ((n & 1) != 0) {
+                        s = "1" + s;
+                    } else {
+                        s = "0" + s;
+                    }
+                    n = n >> 1;
+                }
+                while (s.startsWith("0")) {
+                    s = s.startsWith("0") ? s.substring(1) : s;
+                }
+                System.out.println(s);
+                break;
+            case 4:
+                String s1 = "";
+                long n1 = scanner.nextInt();
+                byte digit = 64;
+                for (int i = 0; i < digit; i++) {
+                    if ((n1 & 1) != 0) {
+                        s1 = "1" + s1;
+                    } else {
+                        s1 = "0" + s1;
+                    }
+                    n1 = n1 >> 1;
+                }
+                System.out.println(s1);
+                break;
+            case 5:
+                String str = "";
+                String stri="";
+                float f = scanner.nextFloat();
+                byte dig = 32;
+                int f1 = (int) f;
+                if (f > 0) {
+
+                    float f2 = f - f1;
+
+                    for (int i = 0; i < dig/4; i++) {
+                        if ((f1 & 1) != 0) {
+                            str = "1" + str;
+                        } else {
+                            str = "0" + str;
+                        }
+                        f1 = f1 >> 1;
+                    }
+                    while (str.startsWith("0")) {
+                        str = str.startsWith("0") ? str.substring(1) : str;
+                    }
+                    for (int i = 0; i < dig-(1+dig/4); i++) {
+                       while(f2!=0&f2<1.0){
+                           stri="0"+stri;
+                           f2*=2;
+
+                        } if(f2>=1.0) {
+                            int f21 = (int) f2;
+                            f2-=f21;
+                            f2*=2;
+                            stri="1"+stri;
+                        }
+                        }
+
+                    System.out.println("0"+" "+str+"."+stri);
+                } else {
+                    float f2=f+f1;
+                    f2=Math.abs(f2);
+                    for (int i = 0; i < dig/4; i++) {
+                        if ((f1 & 1) != 0) {
+                            str = "1" + str;
+                        } else {
+                            str = "0" + str;
+                        }
+                        f1 = f1 >> 1;
+                    }
+                    while (str.startsWith("0")) {
+                        str = str.startsWith("0") ? str.substring(1) : str;
+                    }
+                    for (int i = 0; i < dig-(1+dig/4); i++) {
+                        while(f2!=0&f2<1.0){
+                            stri="0"+stri;
+                            f2*=2;
+
+                        } if(f2>=1.0) {
+                            int f21 = (int) f2;
+                            f2-=f21;
+                            f2*=2;
+                            stri="1"+stri;
+                        }
+                    }
+
+                    System.out.println("1"+" "+str+"."+stri);
+                }
+                break;
+
+            case 6:
+                String str1 = "";
+                String stri1="";
+                double d = scanner.nextDouble();
+                byte dig1 = 64;
+                int d1 = (int) d;
+                if (d > 0) {
+
+                    double d2 = d - d1;
+
+                    for (int i = 0; i < dig1/4; i++) {
+                        if ((d1 & 1) != 0) {
+                            str1 = "1" + str1;
+                        } else {
+                            str1 = "0" + str1;
+                        }
+                        d1 = d1 >> 1;
+                    }
+                    while (str1.startsWith("0")) {
+                        str1 = str1.startsWith("0") ? str1.substring(1) : str1;
+                    }
+                    for (int i = 0; i < dig1-(1+dig1/4); i++) {
+                        while(d2!=0&d2<1.0){
+                            stri1="0"+stri1;
+                            d2*=2;
+
+                        } if(d2>=1.0) {
+                            long d21 = (long) d2;
+                            d2-=d21;
+                            d2*=2;
+                            stri1="1"+stri1;
+                        }
+                    }
+                    System.out.println("0 "+str1+"."+stri1);
+                } else {
+                    double d2=d+d1;
+                    d2=Math.abs(d2);
+                    for (int i = 0; i < dig1/4; i++) {
+                        if ((d1 & 1) != 0) {
+                            str1 = "1" + str1;
+                        } else {
+                            str1 = "0" + str1;
+                        }
+                        d1 = d1 >> 1;
+                    }
+                    while (str1.startsWith("0")) {
+                        str1 = str1.startsWith("0") ? str1.substring(1) : str1;
+                    }
+                    for (int i = 0; i < dig1-(1+dig1/4); i++) {
+                        while(d2!=0&d2<1.0){
+                            stri1="0"+stri1;
+                            d2*=2.0;
+
+                        } if(d2>=1.0) {
+                            long d21 = (long) d2;
+                            d2-=d21;
+                            d2*=2.0;
+                            stri1="1"+stri1;
+                        }
+                    } System.out.println("1 "+str1+"."+stri1);
+                }
+                break;
+            default:
+                System.out.println("Closing the program...");
+        }
+    }
+
+
+    public static void message() {
+        System.out.println("What type of number do you want to convert?");
+        System.out.println("1.Byte");
+        System.out.println("2.Short");
+        System.out.println("3.Int");
+        System.out.println("4.Long");
+        System.out.println("5.Float");
+        System.out.println("6.Double");
+        System.out.println("Type any other number to close the program");
+    }
+}
